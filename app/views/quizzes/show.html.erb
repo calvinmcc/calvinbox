@@ -1,0 +1,19 @@
+<div>
+  <%= form_for(@quiz) do |f| %>
+    <%= f.fields_for :questions, @questions do |ff| %>
+      <div>
+        <%  %>
+      </div>
+      <%= ff.text_field :answer, class: 'form-control' %>
+    <% end %>
+    <button class="btn btn-lg btn-primary">
+      <%= f.submit %>
+    </button>
+  <% end %>
+<div>
+
+
+
+<%= link_to_next_page @questions, 'Next Page' %>
+<%= paginate @questions %>
+

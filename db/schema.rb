@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_172731) do
+ActiveRecord::Schema.define(version: 2020_04_19_065106) do
 
   create_table "questions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_172731) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
