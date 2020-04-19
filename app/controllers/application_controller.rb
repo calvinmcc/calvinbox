@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def check_admin
+    if current_user.role != "admin"
+      redirect_to root_path, notice: "Nope! No cheating!" and return
+    end
+  end
 end

@@ -7,7 +7,8 @@ class QuizzesController < ApplicationController
     if @quiz != current_user.quiz
       redirect_to root_path, notice: "Wrong quiz you ding dong!" and return
     end
-    @questions = @quiz.questions.page(params[:page]).per(5)
+    number_of_questions = @quiz.per_section * @quiz.section_enabled
+    @questions = @quiz.questions.first(number_of_questions)
   end
 
   def edit

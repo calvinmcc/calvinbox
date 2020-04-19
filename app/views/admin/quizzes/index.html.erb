@@ -1,0 +1,16 @@
+<% @quizzes.each do |quiz| %>
+  <%= quiz.user.username %>
+  <%= link_to "Show", admin_quiz_path(quiz) %>
+<% end %>
+
+<%= form_tag("/admin/quizzes/update_section_numbers", method: 'post', remote: true ) do %>
+
+  <%= label_tag :section_number, 'Number of sections' %>
+  <%= text_field_tag :section_number, @quizzes.first&.sections %>
+  <%= label_tag :per_section, 'Questions per section' %>
+  <%= text_field_tag :per_section, @quizzes.first&.per_section %>
+  <%= label_tag :section_enabled, 'Which section is enabled?' %>
+  <%= text_field_tag :section_enabled, @quizzes.first&.section_enabled %>
+  <%= submit_tag %>
+
+<% end %>

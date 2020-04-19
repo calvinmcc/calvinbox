@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root 'users#index'
     resources :users
     resources :quizzes
     resources :questions
+    post 'quizzes/update_section_numbers', to: 'quizzes#update_section_numbers', as: 'update_section_numbers'
   end
 
   

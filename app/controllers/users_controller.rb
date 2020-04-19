@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin, only: [:edit, :update, :destroy, ]
 
   # GET /users
   # GET /users.json
@@ -24,10 +25,14 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    if params[:reset] == '1' && current_user&.role == 'admin' && User.find_by(username: params[:username]).present?
+      AddQuestionsToQuiz.new(User.find_by(username: params[:username])).generate_questions(destroy: true)
+    end
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
+        AddQuestionsToQuiz.new(@user).generate_questions(destroy: false)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -69,6 +74,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :username, :password, :password_confirmation)
     end
 end

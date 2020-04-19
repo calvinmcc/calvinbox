@@ -1,0 +1,4 @@
+<%= @quiz.user.username %>
+<% @quiz.questions.each do |q| %>
+  <%= "#{q.name}: #{q.answer}" %>
+<% end %>

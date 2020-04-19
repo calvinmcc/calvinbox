@@ -1,12 +1,14 @@
 class AddQuestionsToQuiz
   def initialize(user)
     @user = user
-    @quiz = user.quiz
+    @quiz = Quiz.find_or_create_by(user_id: @user.id)
   end
 
   def generate_questions(destroy: false)
     if @quiz.questions.present? && destroy
       @quiz.questions.destroy_all
+    elsif @quiz.questions.present?
+      return true
     end
 
     20.times do |i| 
