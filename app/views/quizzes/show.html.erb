@@ -1,13 +1,20 @@
-<div>
+<div class="panel">
   <%= form_for(@quiz) do |f| %>
     <%= f.fields_for :questions, @questions do |ff| %>
-      <div>
-        <%  %>
-      </div>
-      <%= ff.text_field :answer, class: 'form-control' %>
+    <div class="panel-question">
+      <% if ff.object.song_file.attached? %>
+
+          <%= audio_tag "clip_8.m4a", controls: true %>
+      <% else %>
+        <div class="panel-question-label">
+          <%= ff.object.name  %>
+        </div>
+      <% end %>
+        <%= ff.text_field :answer, class: 'form-control' %>
+    </div>
     <% end %>
     <button class="btn btn-lg btn-primary">
-      <%= f.submit %>
+      <%= f.submit "Submit!" %>
     </button>
   <% end %>
 <div>

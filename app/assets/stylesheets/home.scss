@@ -15,7 +15,9 @@
     }
   }
   .header-text {
-    width: 100%;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
     display: flex;
     justify-content: space-between;
     height: 6vh;
@@ -68,6 +70,28 @@
   }
 }
 
+button {
+  input {
+    background-color: transparent;
+    border:none;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.btn-primary {
+  background-color: #32cd32;
+  color: white;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    background-color: #2bb32b;
+  }
+}
+
 .start-button {
   margin-top: 8%;
   color: white;
@@ -104,9 +128,18 @@ body {
   margin-left: 2%;
   margin-top: 2.5vh;
   background-color: #457eda;
-  height: 67vh;
+  height: fit-content;
   border-radius: 10px;
   padding: 15px;
+}
+
+.panel-question {
+  margin-bottom: 10px;
+}
+
+.panel-question-label {
+  margin-bottom: 5px;
+  font-size: 18px;
 }
 
 .panel-header {

@@ -1,3 +1,4 @@
 class Question < ApplicationRecord
-  max_paginates_per 5
+  belongs_to :quiz
+  has_one_attached :song_file
 end
