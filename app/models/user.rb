@@ -2,5 +2,5 @@ class User < ApplicationRecord
   has_secure_password
   validates :username, uniqueness: :true
 
-  has_one :quiz
+  has_one :quiz, dependent: :destroy
 end

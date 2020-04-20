@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def create
     if params[:reset] == '1' && current_user&.role == 'admin' && User.find_by(username: params[:username]).present?
       AddQuestionsToQuiz.new(User.find_by(username: params[:username])).generate_questions(destroy: true)
+      redirect_to admin_path and return
     end
     @user = User.new(user_params)
 

@@ -1,3 +1,118 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.header {
+  width: 100%;
+  background: black;
+  height: 28vh;
+
+  .header-img {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 22vh;
+    }
+  }
+  .header-text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 6vh;
+    align-items: center;
+    color: #457eda;
+
+    .center-item {
+      flex: 1;
+      text-align: center;
+      font-size: 2.5em;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+
+    .item {
+      flex:1;
+      font-size: 1.2em;
+      text-align: left;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      align-self: flex-end;
+      a {
+        color: #457eda;
+      }
+    }
+
+    .item-reverse {
+      flex:1;
+      font-size: 1.2em;
+      text-align: right;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      align-self: flex-end;
+      a {
+        color: #457eda;
+      }
+    }
+  }
+}
+.highlight {
+  color: #ffa4ff;
+  font-weight: bold;
+  a {
+    color: #ffa4ff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      color: #ffa4ff;
+    }
+  }
+}
+
+.start-button {
+  margin-top: 8%;
+  color: white;
+  width: 30vw;
+  border: 5px solid white;
+  height: 30vw;
+  background-color: #e42121;
+  align-self: center;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  font-size: 3em;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #c31b1b;
+    color: white;
+  }
+
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 96%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 2.5vh;
+  background-color: #457eda;
+  height: 67vh;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.panel-header {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

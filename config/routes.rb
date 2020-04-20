@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :quizzes
     resources :questions
     post 'quizzes/update_section_numbers', to: 'quizzes#update_section_numbers', as: 'update_section_numbers'
+    post 'users/update_quizzes', to: 'users#update_quizzes', as: 'update_quizzes'
   end
 
   

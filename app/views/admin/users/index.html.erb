@@ -11,21 +11,21 @@
   </div>
 <% end %>
 
-<%= form_for(@user) do |form|%>
+<%= form_tag("/admin/users/update_quizzes", method: 'post', remote: true ) do %>
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
   </div>
   <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+    <%= label_tag :password %>
+    <%= text_field_tag :password %>
   </div>
   <div class="field">
     <%= label_tag :reset %>
     <%= check_box_tag :reset %>
   </div>
 <button class="btn-lg btn-primary">
-  <%= form.submit %>
+  <%= submit_tag %>
 <button>
 
 <% end%>
