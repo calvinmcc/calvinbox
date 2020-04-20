@@ -4,7 +4,7 @@
     <div class="panel-question">
       <% if ff.object.song_file.attached? %>
 
-          <%= audio_tag "clip_8.m4a", controls: true %>
+          <%= audio_tag ff.object.song_file.attachment.blob.filename, controls: true %>
       <% else %>
         <div class="panel-question-label">
           <%= ff.object.name  %>

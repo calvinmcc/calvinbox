@@ -9,33 +9,33 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('calbox_favicon.png') %>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" %>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
   </head>
 
   <div class="header">
-
-        <div class="header-img">
-          <%= image_tag('calvinbox.png') %>
-        </div>
-        <div class="header-text">
-        
-          <div class="item">
-            <% if current_user %>
-              Logged in as <span class="highlight"><%= current_user.username %></span>
-            <% else %>
-              <%= link_to "Sign Up", signup_path %>
-            <% end %>
-          </div>
-          <div class="center-item">
-            CALVINBOX
-          </div>
-          <div class="item-reverse">
-            <% if current_user %>
-              <%= link_to "Log Out", logout_path %>
-            <% else%>
-              <%= link_to "Log In", login_path %>
-            <% end %>
-          </div>
-        </div>
+    <div class="header-img">
+      <%= image_tag('calvinbox.png') %>
+    </div>
+    <div class="header-text">
+    
+      <div class="item">
+        <% if current_user %>
+          Logged in as <span class="highlight"><%= current_user.username %></span>
+        <% else %>
+          <%= link_to "Sign Up", signup_path %>
+        <% end %>
+      </div>
+      <div class="center-item">
+        CALVINBOX
+      </div>
+      <div class="item-reverse">
+        <% if current_user %>
+          <%= link_to "Log Out", logout_path %>
+        <% else%>
+          <%= link_to "Log In", login_path %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <body>
     <%= yield %>

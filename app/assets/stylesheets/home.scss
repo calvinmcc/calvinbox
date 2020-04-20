@@ -16,6 +16,7 @@
   }
   .header-text {
     width: 96%;
+    margin-top: 10px;
     margin-left: 2%;
     margin-right: 2%;
     display: flex;
@@ -23,13 +24,15 @@
     height: 6vh;
     align-items: center;
     color: #457eda;
+    
 
     .center-item {
+      font-family: 'Gloria Hallelujah', sans-serif;
       flex: 1;
       text-align: center;
-      font-size: 2.5em;
-      font-weight: bold;
+      font-size: 4em;
       padding-bottom: 10px;
+      padding-top: 10px;
     }
 
     .item {
@@ -93,18 +96,19 @@ button {
 }
 
 .start-button {
-  margin-top: 8%;
+  margin-top: 15px;
   color: white;
-  width: 30vw;
+  width: 45vh;
   border: 5px solid white;
-  height: 30vw;
+  height: 45vh;
   background-color: #e42121;
   align-self: center;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items:center;
-  font-size: 3em;
+  font-size: 2em;
+  font-family: 'Gloria Hallelujah', sans-serif;
   &:hover {
     cursor: pointer;
     text-decoration: none;
