@@ -33,7 +33,7 @@
       <% if ff.object.song_file.attached? %>
         <%= audio_tag ff.object.song_file.attachment.blob.filename, controls: true %>
       <% elsif ff.object&.name.split('-').first == "IMAGE" %>
-        <%= image_tag(image_path("#{ff.object.name.split('-').last}"), class: "quiz-image") %>
+        <%= image_tag(asset_path("#{ff.object.name.split('-').last}"), class: "quiz-image") %>
       <% else %>
         <div class="panel-question-label">
           <%= ff.object.name  %>
