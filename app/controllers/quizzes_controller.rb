@@ -9,6 +9,7 @@ class QuizzesController < ApplicationController
     end
     number_of_questions = @quiz.per_section * @quiz.section_enabled
     @questions = @quiz.questions.first(number_of_questions)
+    @users = User.where.not(role: "admin")
   end
 
   def edit

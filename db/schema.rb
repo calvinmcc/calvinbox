@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_035404) do
+ActiveRecord::Schema.define(version: 2020_04_20_232954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,11 @@ ActiveRecord::Schema.define(version: 2020_04_20_035404) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
     t.string "username"
+    t.boolean "has_voted", default: false
+    t.integer "name_votes", default: 0
+    t.integer "uniform_votes", default: 0
+    t.integer "points", default: 0
+    t.string "team_name"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

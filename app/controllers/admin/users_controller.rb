@@ -4,8 +4,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @user = User.new
-    @users = User.all
-
+    @users = User.all.where(role: 'team')
   end
 
 

@@ -118,6 +118,12 @@ button {
 
 }
 
+.quiz-image {
+  margin-bottom: 10px;
+  height: 200px;
+  width: auto;
+}
+
 body {
   padding: 0px;
   margin: 0px;
@@ -152,4 +158,42 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.poll {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.flex-item-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 3vw;
+}
+
+.flex-item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-lg {
+  &.btn-primary {
+    &.vote {
+      font-family: 'Gloria Hallelujah', sans-serif;
+      height: 12vh;
+      width: 12vh;
+      border-radius: 50%;
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }

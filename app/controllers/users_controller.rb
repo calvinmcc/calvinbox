@@ -22,6 +22,23 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def vote
+    user = User.find(params['current_team'])
+    uniform_user = User.find(eval(params[:uniform_votes])[:value])
+    name_user = User.find(eval(params[:name_votes])[:value])
+
+    uni = uniform_user.uniform_votes + 1
+    name = name_user.uniform_votes + 1
+    uniform_user.uniform_votes = uni
+    uniform_user.save
+    name_user.name_votes = name
+    name_user.save
+
+    user.has_voted = true
+    user.save
+
+  end
+
   # POST /users
   # POST /users.json
   def create

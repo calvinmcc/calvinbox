@@ -1,10 +1,39 @@
 <div class="panel">
+  <% if !current_user.has_voted %>
+
+      <%= form_tag("/users/vote", method: 'post', remote: true, class: 'poll', id: 'poll' ) do %>
+        <div class="flex-item-questions">
+          <h3>Vote for best team uniform:</h3>
+          <% @users.each do |user| %>
+            <% if user != current_user %>
+              <%= label_tag :uniform_votes, "#{user.team_name}" %>
+              <%= radio_button_tag :uniform_votes, checked: false, value: user.id %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="flex-item-questions">
+          <h3>Vote for best team name:</h3>
+          <% @users.each do |user| %>
+            <% if user != current_user %>
+              <%= label_tag :name_votes, "#{user.team_name}" %>
+              <%= radio_button_tag :name_votes, checked: false, value: user.id %>
+            <% end %>
+          <% end %>
+        </div>
+      <div id="vote-button" class="flex-item-button">
+          <%= hidden_field_tag :current_team, current_user.id %>
+          <%= submit_tag "Vote!", class: "btn-lg btn-primary vote"  %>
+      </div>
+      <% end %>
+
+  <% end %>
   <%= form_for(@quiz) do |f| %>
     <%= f.fields_for :questions, @questions do |ff| %>
     <div class="panel-question">
       <% if ff.object.song_file.attached? %>
-
-          <%= audio_tag ff.object.song_file.attachment.blob.filename, controls: true %>
+        <%= audio_tag ff.object.song_file.attachment.blob.filename, controls: true %>
+      <% elsif ff.object&.name.split('-').first == "IMAGE" %>
+        <%= image_tag("#{ff.object.name.split('-').last}", class: "quiz-image") %>
       <% else %>
         <div class="panel-question-label">
           <%= ff.object.name  %>
@@ -18,4 +47,13 @@
     </button>
   <% end %>
 <div>
+
+<script>
+  $(function() {
+    var button =  document.getElementById('vote-button');
+    button.addEventListener('click', function (event) {
+      document.getElementById('poll').classList.add('hidden')
+    });
+  });
+</script>
 

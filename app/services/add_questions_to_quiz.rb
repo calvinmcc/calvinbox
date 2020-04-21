@@ -12,7 +12,7 @@ class AddQuestionsToQuiz
     end
 
     questions_arr.each_with_index do |question, i|
-      if question.split('-')&.first == 'IMAGE'
+      if question.split('-')&.first == 'SONG'
         file = question.split('-')&.last
         qq = @quiz.questions.create({number: i + 1})
         qq.song_file.attach(io: File.open("app/assets/songs/#{file}"), filename: "#{file}", content_type: 'audio/m4a')
@@ -51,7 +51,26 @@ class AddQuestionsToQuiz
       '',
       '',
       '',
-      'IMAGE-clip_8.m4a'
+      'SONG-clip_1.m4a',
+      'SONG-clip_2.m4a',
+      'SONG-clip_3.m4a',
+      'SONG-clip_4.m4a',
+      'SONG-clip_5.m4a',
+      'SONG-clip_6.m4a',
+      'SONG-clip_7.m4a',
+      'SONG-clip_8.m4a',
+      'SONG-clip_9.m4a',
+      'SONG-clip_10.m4a',
+      'IMAGE-trivia_1.jpeg',
+      'IMAGE-trivia_2.jpeg',
+      'IMAGE-trivia_3.jpeg',
+      'IMAGE-trivia_4.jpeg',
+      'IMAGE-trivia_5.jpeg',
+      'IMAGE-trivia_6.jpeg',
+      'IMAGE-trivia_7.jpeg',
+      'IMAGE-trivia_8.jpeg',
+      'IMAGE-trivia_9.jpeg',
+      'IMAGE-trivia_10.jpeg',
     ]
   end
 end

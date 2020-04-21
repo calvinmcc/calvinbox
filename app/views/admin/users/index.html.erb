@@ -1,12 +1,22 @@
 <% @users.each do |user| %>
   <div class="list-item">
-    <%= user.username %>
+  <h5>
+    <%= user.team_name %>
+    <p>
+      Uniform votes: <span class="highlight"><%= user.uniform_votes %></span>
+      Name votes: <span class="highlight"><%= user.name_votes %></span>
+    </p>
+  </h5>
     <% if user.quiz.present? %>
       <%= link_to "View quiz", admin_quiz_path(user.quiz) %>
     <% end %>
     <% user.quiz&.questions&.each do |qq| %>
-
-      <%= "#{qq.name}: #{qq.answer}" %>
+    <p>
+      <%= "#{qq.name}" %>
+    </p>
+    <p class="highlight">
+      <%= "#{qq.answer}" %>
+    </p>
     <% end %>
   </div>
 <% end %>

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     post 'users/update_quizzes', to: 'users#update_quizzes', as: 'update_quizzes'
   end
 
-  
+  post 'users/vote', to: 'users#vote', as: 'vote'
+
   resources :questions
   resources :quizzes
   resources :sessions, only: [:new, :create, :destroy]
