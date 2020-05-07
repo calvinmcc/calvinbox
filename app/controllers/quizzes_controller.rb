@@ -22,9 +22,9 @@ class QuizzesController < ApplicationController
 
   def update
     @quiz = Quiz.find(params[:id])
-    @questions = @quiz.questions.page(params[:page]).per(5)
     if @quiz.update(quiz_params)
-      redirect_to quiz_path(id: @quiz.id, params: { page: params[:page]})
+      flash[:notice] = "Thanks for your answers! Sit tight until the next round!"
+      redirect_to quiz_path(@quiz)
     else
       render :action => 'edit'
     end

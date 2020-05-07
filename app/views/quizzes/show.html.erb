@@ -27,6 +27,9 @@
       <% end %>
 
   <% end %>
+  <% if notice.present? %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
   <%= form_for(@quiz) do |f| %>
     <%= f.fields_for :questions, @questions do |ff| %>
     <div class="panel-question">
